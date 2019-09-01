@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gzucm.bos.mapper.UserDao">
+
+	<!-- public User login(User user); -->
+	<select id = "login" parameterType = "User" resultType = "User">
+		select * from t_user
+		<where>
+			username = #{username} and password = #{password}
+		</where>
+	</select>
+	
+	<!-- public void editPassword(String password, String userId); -->
+	<update id="editPassword" parameterType ="String">
+		update t_user set password = #{0} where id= #{1}
+	</update>
+</mapper>
